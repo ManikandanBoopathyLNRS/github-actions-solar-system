@@ -71,11 +71,12 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: 'ManikandanBoopathyLNRS'
-          password: 'ghp_sdfJwonz63AhjyW4yeB7GDSE4YqGxg'
+          username: '${{ github.repository_owner }}'
+          password: '${{ secrets.GITHUB_TOKEN }}'
       - name: build and publish
         uses: docker/build-push-action
         with:
+          context: .
           push: true
           tags: ghcr.io/{githubUsername}/solar-system:${{ github.sha }}
         
