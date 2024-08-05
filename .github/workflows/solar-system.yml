@@ -64,6 +64,8 @@ jobs:
     name: docker
     runs-on: ubuntu-latest
     needs: [unit-testing, code-coverage]
+    permissions:
+      repository-projects: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
